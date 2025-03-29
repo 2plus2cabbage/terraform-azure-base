@@ -32,3 +32,4 @@ The project is split into multiple files to illustrate modularity and keep separ
 3. Get the public IP from the `azure_vm_public_ip` output on the screen, or run `terraform output azure_vm_public_ip`, or check in the Azure Portal under **Virtual Machines**.
 4. Get the initial username and password from `terraform.tfvars` (`admin_username` and `windows_admin_password`).
 5. Use Remote Desktop to log in with the username and password; change the password on first login.
+6. To remove all resources, run `terraform destroy` (type `yes`).
