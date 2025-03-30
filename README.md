@@ -1,3 +1,5 @@
+![azure-base](https://github.com/2plus2cabbage/2plus2cabbage/blob/main/images/azure-base.png)
+
 # Azure Windows Instance Terraform Deployment
 
 Deploys a Windows Server 2022 VM in Microsoft Azure with RDP and internet access.
