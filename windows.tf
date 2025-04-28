@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "cabbage_nic" {
   location                          = var.location                                          # Azure region for deployment
   resource_group_name               = azurerm_resource_group.cabbage_rg.name                # Resource group for the NIC
   ip_configuration {
-    name                            = "internal"                                            # Name of the IP configuration
+    name                            = "${local.private_ip_prefix}001"                       # Name of the IP configuration
     subnet_id                       = azurerm_subnet.cabbage_subnet.id                      # Subnet for the NIC
     private_ip_address_allocation   = "Dynamic"                                             # Dynamic private IP allocation
     public_ip_address_id            = azurerm_public_ip.cabbage_public_ip.id                # Public IP for RDP access
@@ -27,11 +27,11 @@ resource "azurerm_windows_virtual_machine" "windows_instance" {
   resource_group_name               = azurerm_resource_group.cabbage_rg.name                # Resource group for the VM
   location                          = var.location                                          # Azure region for deployment
   size                              = "Standard_D2s_v3"                                     # VM size (compute resources)
-  admin_username                    = var.admin_username                                    # Admin username for the VM
+  admin_username                    = local.admin_username                                  # Admin username for the VM
   admin_password                    = var.windows_admin_password                            # Admin password for the VM
   network_interface_ids             = [azurerm_network_interface.cabbage_nic.id]            # Network interface for the VM
   os_disk {
-    name                            = "diskos-windows-001"                                  # Name of the OS disk
+    name                            = "${local.diskos_name}001"                             # Name of the OS disk
     caching                         = "ReadWrite"                                           # Disk caching type
     storage_account_type            = "Standard_LRS"                                        # Storage type for the OS disk
   }
@@ -68,4 +68,10 @@ output "azure_vm_public_ip" {
 output "azure_vm_private_ip" {
   value                             = azurerm_network_interface.cabbage_nic.private_ip_address # Private IP address of the VM
   description                       = "Private IP of the Azure Windows VM"                  # Description of the output
+}
+
+# Outputs the admin username for the Windows VM
+output "azure_vm_admin_username" {
+  value                             = local.admin_username                                  # Admin username for the VM
+  description                       = "Admin username for the Azure Windows VM"             # Description of the output
 }

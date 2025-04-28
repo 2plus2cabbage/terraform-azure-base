@@ -37,8 +37,3 @@ variable "windows_admin_password" {
   type        = string           # Password for the Windows VM admin user
   description = "Password for the Windows VM admin user"
 }
-
-variable "admin_username" {
-  type        = string           # Admin username for the Windows VM
-  description = "Admin username for the Windows VM"
-}
