@@ -1,4 +1,4 @@
-# Creates a route table to direct traffic from the subnet to the internet
+                                                                                   # Creates a route table to direct traffic from the subnet to the internet
 resource "azurerm_route_table" "cabbage_route_table" {
   name                          = "rt-${var.environment_name}-${var.location}-001" # Name of the route table
   location                      = var.location                                     # Azure region for deployment
@@ -10,7 +10,7 @@ resource "azurerm_route_table" "cabbage_route_table" {
   }
 }
 
-# Associates the route table with the subnet for internet access
+                                                                                   # Associates the route table with the subnet for internet access
 resource "azurerm_subnet_route_table_association" "cabbage_subnet_route" {
   subnet_id                     = azurerm_subnet.cabbage_subnet.id                 # Subnet to associate with the route table
   route_table_id                = azurerm_route_table.cabbage_route_table.id       # Route table to associate with the subnet

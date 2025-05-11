@@ -1,4 +1,4 @@
-# Configures the Azure provider with authentication details for Terraform to manage Azure resources
+                                                    # Configures the Azure provider with authentication details for Terraform to manage Azure resources
 provider "azurerm" {
   subscription_id            = var.subscription_id  # Azure subscription ID for authentication
   client_id                  = var.client_id        # Azure client ID for authentication

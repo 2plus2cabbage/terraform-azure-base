@@ -1,4 +1,4 @@
-# Creates a virtual network (VNet) to host the subnet and resources
+                                                                        # Creates a virtual network (VNet) to host the subnet and resources
 resource "azurerm_virtual_network" "cabbage_vnet" {
   name                  = "${local.vnet_name}1040016"                   # Name of the VNet
   address_space         = ["10.4.0.0/16"]                               # Address space for the VNet
@@ -6,7 +6,7 @@ resource "azurerm_virtual_network" "cabbage_vnet" {
   resource_group_name   = azurerm_resource_group.cabbage_rg.name        # Resource group for the VNet
 }
 
-# Creates a subnet within the VNet for the Windows VM
+                                                                        # Creates a subnet within the VNet for the Windows VM
 resource "azurerm_subnet" "cabbage_subnet" {
   name                  = "${local.subnet_name_prefix}1041024"          # Name of the subnet
   resource_group_name   = azurerm_resource_group.cabbage_rg.name        # Resource group for the subnet

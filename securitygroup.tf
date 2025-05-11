@@ -1,4 +1,4 @@
-# Creates a network security group to control traffic to the subnet
+                                                                                    # Creates a network security group to control traffic to the subnet
 resource "azurerm_network_security_group" "cabbage_nsg" {
   name                          = "${local.security_group_name_prefix}001"          # Name of the network security group
   location                      = var.location                                      # Azure region for deployment
@@ -16,7 +16,7 @@ resource "azurerm_network_security_group" "cabbage_nsg" {
   }
 }
 
-# Associates the network security group with the subnet
+                                                                                    # Associates the network security group with the subnet
 resource "azurerm_subnet_network_security_group_association" "cabbage_nsg_subnet" {
   subnet_id                     = azurerm_subnet.cabbage_subnet.id                  # Subnet to associate with the NSG
   network_security_group_id     = azurerm_network_security_group.cabbage_nsg.id     # NSG to associate with the subnet

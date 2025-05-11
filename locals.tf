@@ -9,5 +9,5 @@ locals {
   windows_name_prefix            = "vm-${var.environment_name}-${var.location}-windows-"    # Prefix for Windows VM name
   admin_username                 = "${var.environment_name}admin"                           # Admin username for the Windows VM
   diskos_name                    = "osdisk-${var.environment_name}-${var.location}-"        # Prefix for OS disk name
-  gw_name_prefix                 = "gw-${var.environment_name}-${var.location}-"           # Prefix for gateway-related resources
+  gw_name_prefix                 = "gw-${var.environment_name}-${var.location}-"            # Prefix for gateway-related resources
 }
